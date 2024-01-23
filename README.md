@@ -35,7 +35,6 @@ const encodeButton = document.getElementById("encodeButton");
 const constText = document.getElementById("outputText");
 const decodeButton = document.getElementById("decodeButton");
 
-//alterado de clique para click ( click e o envento que dispara um click no objeto)  
 const decodeText = () => {
     const resultado = decodeWithAES(inputText.value,"123");
     constText.innerText = resultado
@@ -51,7 +50,7 @@ const encodeText = () => {
 };
 
 /**
- * criei a funcao decodeText
+ * criei a funcao decodeWithAES para decodificar
 */
 function decodeWithAES (texto, senha) {
     return CryptoJS.AES.decrypt(texto,senha);
@@ -64,8 +63,12 @@ function encryptWithAES (texto, senha) {
     return CryptoJS.AES.encrypt(texto, senha);
 }
 
+/**
+ * alterado de clique para click 
+ * ( click e o envento que dispara um click no objeto) 
+ * e passo false para evitar propagacao
+ */
 decodeButton.addEventListener("click", decodeText, false);
 encodeButton.addEventListener("click", encodeText, false); 
 
-// console.log('cripto', encryptWithAES("joao",134));
 ```
